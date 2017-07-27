@@ -43,6 +43,10 @@ LimitMEMLOCK=infinity
 LimitMEMLOCK=<%= @resource[:memlock] %>
 <% end %>
 
+# Service is restarted after its process exits uncleanly, with the exception of
+# a clean stop by the systemctl command
+Restart=on-failure
+
 # Disable timeout logic and wait until process is stopped
 TimeoutStopSec=0
 
